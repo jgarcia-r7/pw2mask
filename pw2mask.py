@@ -35,7 +35,7 @@ maskTable = [] # Create list to store password masks.
 
 
 # Get masks for passwords in file.
-for line in lines: 
+for line in lines:
     mask = [] # Blank array for generating the mask.
     cleanLine = line.replace('\r\n','').replace('\n','') # Cleanup the line.
     for c in cleanLine:
@@ -54,7 +54,9 @@ commonTable = ["%i. %s" % (index + 1, value) for index, value in enumerate(mostC
 formattedTable = "\n".join(commonTable)
 
 
-# Print top x masks.
+# Print top x masks and key.
+print("     Password Mask Key\n-----------------------------")
+print("?d: Digit\n?l: Lowercase letter\n?u: Uppercase letter\n?s: Special character\n")
 print(f"    Top {common_count} Password Masks\n-----------------------------")
 print(formattedTable.replace("(","").replace(")","").replace(","," :").replace("'",""))
 print("\n[+] Wrote Passwords Masks to masks.txt")
